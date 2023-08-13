@@ -33,12 +33,12 @@ This project aims to provide a user-friendly Graphical User Interface (GUI) for 
 
 1. Run the application:
    ```
-   python main.py
+   python app.py
    ```
 
 2. Log in with your credentials.
 
-3. Navigate to the "Trading" section to execute manual trades and monitor algorithmic strategies.
+3. Navigate to the "Trading" section to execute manual trades and monitor algorithmic strategies. (Comming Soon)
 
 
 ## Screenshots

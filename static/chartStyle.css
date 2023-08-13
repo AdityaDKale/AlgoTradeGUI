@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+}
+
+#chartContainer {
+    position: relative;
+}
+
+#stockHeader {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    background-color: white;
+}
+
+#stockName {
+    margin-right: 10px;
+}
+
+#legend {
+    margin-left: 10px;
+    /* Add the left margin */
+    font-size: small;
+    background-color: white;
+}
+
+#symbolTable {
+    position: absolute;
+    left: 70vw;
+    width: 29vw;
+    height: 50vh;
+    z-index: 2;
+}
+
+#timeFrameList {
+    position: relative;
+
+}
+
+#timeFrameGroup {
+    position: absolute;
+    left: 70vw;
+    width: 29vw;
+    top: 50vh;
+    z-index: 2;
+}
+
+#actionButtons {
+    position: absolute;
+    /* display: flex; */
+    /* flex-direction: column; */
+    left: 70vw;
+    top: 35vh;
+    width: 30vw;
+    z-index: 2;
+}
+
+#callButtons,
+#putButtons {
+    display: flex;
+    /* flex-direction: column; */
+    /* width: 10vw; */
+}
+
+#callButtons button,
+#putButtons button {
+    margin-right: 50px;
+    /* Adjust as needed */
+}

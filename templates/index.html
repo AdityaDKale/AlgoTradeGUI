@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Candlestick Chart Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chartStyle.css') }}">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="stockHeader">
+        <div id="stockName">{{ symbol }}</div>
+        <div id="timeFrame">{{ time_frame }}</div>
+        <div id="legend"></div>
+    </div>
+    <div id="symbolTable">
+        <table class="table table-hover">
+            <tbody>
+                {% for symbol in symbol_list %}
+                <tr class="symbol-row" data-symbol="{{ symbol }}">
+                    <td>{{ symbol }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="actionButtons">
+        <div id="callButtons">
+            <button type="button" class="btn btn-outline-dark position-absolute bottom-0 start-0 m-3"
+                onclick="buyCall()">Buy Call</button>
+            <button type="button" class="btn btn-outline-dark position-absolute top-0 start-0 m-3"
+                onclick="sellCall()">Sell Call</button>
+            <div id="putButtons">
+                <button type="button" class="btn btn-outline-dark position-absolute bottom-0 end-0 m-3"
+                    onclick="buyPut()">Buy Put</button>
+                <button type="button" class="btn btn-outline-dark position-absolute top-0 end-0 m-3"
+                    onclick="sellPut()">Sell Put</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="timeFrameGroup">
+        Select Time Frame
+        <select id="timeFrameList">
+            {% for timeframe in time_frame_list %}
+            {% if timeframe == time_frame %}
+            <option value="{{ timeframe }}" selected="selected">{{ timeframe }}</option>
+            {% else %}
+            <option value="{{ timeframe }}">{{ timeframe }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="{{url_for('static', filename='robotImg1.jpg')}}" class="rounded me-2" alt="">
+                <strong class="me-auto h3">Alert</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="chartContainer"></div>
+
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="{{ url_for('static', filename='chartScript.js') }}"></script>
+    <div id="data-container" data-symbol="{{ symbol }}" data-time-frame="{{ time_frame }}"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

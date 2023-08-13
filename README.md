@@ -27,7 +27,7 @@ This project aims to provide a user-friendly Graphical User Interface (GUI) for 
    ```
 
 
-2. Configure API keys: Rename `config_sample.py` to `config.py` and fill in your API keys for data retrieval.
+2. Configure API keys: Fill your API keys into UserInfo.py file for data retrieval.
 
 ## Usage
 
